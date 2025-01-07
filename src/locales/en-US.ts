@@ -194,8 +194,76 @@ export default {
 
   ,subtle: 'High definition 2x'
   ,creative: 'High definition 2x. Creative'
-  ,gpt_gx: 'GPTs use g-*'
+  ,gpt_gx: 'GPTs use g-*',
+
+  "ideoabout": "About Ideogram",
+  "ideoserver": "Ideogram Server",
+  "ideokeyPlaceholder": "API Key for Ideogram (optional)",
+  "ideopls": "Image description prompts",
+  "nohead": "Excludes",
+
+  klingabout: 'Kling About',
+  klingserver: 'Kling API Address',
+  klingkeyPlaceholder: 'Kling API Key (optional)',
+  klingkey: 'Kling Key',
+  mode: 'Mode',
+  duration: 'Duration',
+  negative_prompt: 'Place text without objects here',
+  std: 'High Performance',
+  pro: 'High Quality',
+  needImg: 'Please upload a reference image for it to take effect!',
+  seed: 'Seed number 1~2147483647',
+  klingInfo: 'Description: <li>1. High Quality is 3.5 times the price</li> <li>2. 10s is 2 times the price</li> <li>3. The last frame must have a reference image to take effect</li>'
   
+  ,"camera_type": "Lens",
+  "cnull": "Smart Matching",
+  "down_back": "Move Down and Zoom Out",
+  "forward_up": "Push Forward and Move Up",
+  "right_turn_forward": "Turn Right and Push Forward",
+  "left_turn_forward": "Turn Left and Push Forward"
+  ,kling:'Kling'
+
+  ,rttab: 'RealTime',
+  rtinfo: 'Realtime voice conversation service',
+  rtsetting: 'Please set the server. Currently, Realtime only supports remote services; for local services, please contact the author.',
+  rjcloded: 'Connection has been disconnected',
+  checkkey: 'Please check if the API key is correct',
+  rtsuccess: 'Connection is normal, maintaining the call',
+  rtservererror: 'WebSocket connection server error!',
+  rtservererror2: 'Recording is not supported, it may be due to device reasons!',
+  rtconecting: 'Connecting to the server'
+  ,confirmDelete:'Are you sure?',
+  pikaabout: 'About Pika',
+  pikaserver: 'Pika API Address',
+  pikakeyPlaceholder: 'Pika API Key (optional)',
+  createFail: 'Creation failed',
+  selecteff: 'Reference Effect',
+
+  
+  "udioabout": "About Udio",
+  "udiokeyPlaceholder": "Udio API Key (optional)",
+  "udioserver": "Udio API Address",
+  "ud_prompt": "Prompt",
+  "ud_prompt_pls": "Prompt: Description, Style",
+  "ud_ly_write": "Write-Lyrics",
+  "ud_ly_auto": "Auto",
+  "ud_ly_null": "Instrumental",
+  "ud_v32": "Affordable",
+  "ud_v130": "Long Duration",
+  "ud_info": "Note: <ul><li>1. Udio-32 has a short duration</li><li>2. Udio-130 is twice the price of Udio-32</li><li>3. The prompt can include style, description, etc.</li></ul>",
+  "ud_fail": "Failed to generate this song!",
+  "ud_doing": "Cannot play while generating",
+  "ud_continuation": "Continuation",
+  "ud_precede": "Preced",
+  "upImg2": '<span><b>Upload Image</b><br/>This model supports image recognition<br>Note: There will be additional image fees<br/>Formats: jpeg jpg png gif</span><p>Supports drag and drop</p> <p class="pt-2"><b>Upload MP3 MP4</b> <br>Will automatically call the whisper-1 model<br>Formats include: mp3 mp4 mpeg mpga m4a wav webm</p>',
+  "rml_info": "Note:<ul><li>1. Must include an image</li><li>2. The model only has one gen3a_turbo</li><li>3. The price for 10s is double that of 5s</li></ul>",
+  "rml_heng": "Landscape",
+  "rml_shu": "Portrait", 
+  "pixabout": "Pixverse related",
+  "pixkeyPlaceholder": "Pixverse API Key can be left blank",
+  "pixserver": "Pixverse API address",
+  "pixinfo": " Description:<br> <ul> <li>1. Based on v3.5 360p duration 5s mode Normal</li><li>2. v2.5 is 0.5 times</li> <li>3. Duration 10s is 2 times</li> <li>4. 540P is 1.5 times, 720P is 2 times, 1080P is 4 times</li> <li>5. Mode performance is 2 times</li> <li>6. The multiples are multiplied, for example, 720P duration 10s is 2*2 which is 4 times, and if performance is added, it becomes 8 times</li></ul>"
+
   },
   "mjset": {
     "server": "Server",
@@ -445,7 +513,10 @@ export default {
     "nosup": "Not supported temporarily",
     "rwgen2": "Version: Gen-2, cost-effective",
     "rwgen3": "Version: Gen-3 Alpha",
-    "repeat2":"Expired.Reget"
+    "repeat2":"Expired.Reget",
+
+    rwgen3turbo:'Version: Gen-3 Alpha Turbo',
+    gen3a_turbo_img:'Gen-3 Alpha Turbo must image',
 
   },
   dance:{

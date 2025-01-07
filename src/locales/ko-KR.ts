@@ -60,6 +60,7 @@ export default {
     avatarLink: '아바타 링크',
     name: '이름',
     description: '설명',
+    backgroundImage: '배경 이미지',
     role: '역할',
     temperature: '온도',
     top_p: 'Top_p',
@@ -190,8 +191,77 @@ export default {
 
     subtle: '고화질 2배'
     ,creative: '고화질 2배. 창의적'
-    ,gpt_gx: 'GPTs는 g-*를 사용합니다'
+    ,gpt_gx: 'GPTs는 g-*를 사용합니다',
 
+    "ideoabout": "아이디어그램에 대하여",
+    "ideoserver": "아이디어그램 서버",
+    "ideokeyPlaceholder": "아이디어그램의 API 키 (선택 사항)",
+    "ideopls": "이미지 설명 프롬프트",
+    "nohead": "포함하지 않음",
+
+    klingabout: '클링 관련',
+    klingserver: '클링 API 주소',
+    klingkeyPlaceholder: '클링 API 키 (선택 사항)',
+    klingkey: '클링 키',
+    mode: '모드',
+    duration: '지속 시간',
+    negative_prompt: '여기에 객체가 없는 텍스트를 입력하세요',
+    std: '고성능',
+    pro: '고품질',
+    needImg: '효과를 보려면 참조 이미지를 업로드하세요!',
+    seed: '시드 번호 1~2147483647',
+    klingInfo: '설명: <li>1. 고품질은 가격의 3.5배입니다</li> <li>2. 10초는 가격의 2배입니다</li> <li>3. 마지막 프레임은 효과를 위해 참조 이미지가 필요합니다</li>'
+
+    ,"camera_type": "렌즈",
+    "cnull": "스마트 매칭",
+    "down_back": "아래로 이동하고 멀리하기",
+    "forward_up": "앞으로 밀고 위로 이동하기",
+    "right_turn_forward": "오른쪽으로 돌리고 앞으로 밀기",
+    "left_turn_forward": "왼쪽으로 돌리고 앞으로 밀기"
+    ,kling:'Kling',
+    rttab: '음성',
+    rtinfo: '실시간 음성 대화 서비스 (realtime)',
+    rtsetting: '서버를 설정하십시오. 현재 Realtime은 원격 서비스만 지원합니다. 로컬 서비스가 필요하면 저자에게 문의하십시오.',
+    rjcloded: '연결이 끊어졌습니다',
+    checkkey: 'API 키가 올바른지 확인하십시오',
+    rtsuccess: '연결이 정상이며 통화를 유지하고 있습니다',
+    rtservererror: 'WebSocket 서버 연결 오류!',
+    rtservererror2: '녹음이 지원되지 않습니다. 장치 문제일 수 있습니다!',
+    rtconecting: '서버에 연결 중',
+
+    "confirmDelete": "삭제하시겠습니까?",
+    "pikaabout": "Pika 관련",
+    "pikaserver": "Pika API 주소",
+    "pikakeyPlaceholder": "Pika API 키 (선택 사항)",
+    "createFail": "생성 실패",
+    "selecteff": "참고 효과",
+
+    "udioabout": "Udio에 대하여",
+    "udiokeyPlaceholder": "Udio API 키 (선택 사항)",
+    "udioserver": "Udio API 주소",
+    "ud_prompt": "프롬프트",
+    "ud_prompt_pls": "프롬프트: 설명, 스타일",
+    "ud_ly_write": "사용자 정의 가사",
+    "ud_ly_auto": "지능형 가사",
+    "ud_ly_null": "순수 음악",
+    "ud_v32": "저렴한",
+    "ud_v130": "긴 시간",
+    "ud_info": "주의: <ul><li>1. Udio-32는 짧은 길이를 가집니다</li><li>2. Udio-130은 Udio-32의 2배 가격입니다</li><li>3. 프롬프트에는 스타일, 설명 등을 포함할 수 있습니다</li></ul>",
+    "ud_fail": "이 곡 생성에 실패했습니다!",
+    "ud_doing": "생성 중에는 재생할 수 없습니다",
+    "ud_continuation": "계속",
+    "ud_precede": "이전",
+
+    "upImg2": "<span><b>이미지 업로드</b><br/>이 모델은 이미지 인식을 지원합니다<br>주의: 추가 이미지 요금이 발생합니다<br/>형식: jpeg jpg png gif</span><p>드래그 앤 드롭 지원</p> <p class=\"pt-2\"><b>MP3 MP4 업로드</b> <br>자동으로 whisper-1 모델을 호출합니다<br>형식: mp3 mp4 mpeg mpga m4a wav webm</p>",
+    "rml_info": "주의:<ul><li>1. 반드시 이미지를 포함해야 합니다</li><li>2. 모델은 gen3a_turbo 하나만 있습니다</li><li>3. 10초 가격은 5초의 두 배입니다</li></ul>",
+    "rml_heng": "가로 모드",
+    "rml_shu": "세로 모드",
+  
+    "pixabout": "Pixverse 관련",
+    "pixkeyPlaceholder": "Pixverse API 키는 비워둘 수 있습니다",
+    "pixserver": "Pixverse API 주소",
+    "pixinfo": " 설명:<br> <ul> <li>1. v3.5 360p 지속시간 5초 모드 Normal을 기준으로 함</li><li>2. v2.5는 0.5배입니다</li> <li>3. 지속시간 10초는 2배입니다</li> <li>4. 540P는 1.5배, 720P는 2배, 1080P는 4배입니다</li> <li>5. 성능 모드는 2배입니다</li> <li>6. 배수는 곱해지며, 예를 들어 720P 지속시간 10초는 2*2로 4배가 되고, 성능을 추가하면 8배가 됩니다</li></ul>"
+ 
   },
   "mjset": {
     "server": "서버"
