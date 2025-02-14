@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { RunwayTask, runwayStore } from '@/api/runwayStore';
 import { ref, watch } from 'vue';
-import {NEmpty ,NButton,NPopover, NButtonGroup} from "naive-ui"
+import {NEmpty ,NButton,NPopover, NButtonGroup, useMessage,NPopconfirm} from "naive-ui"
 import {runwayFeed} from "@/api/runway"
 import { mlog } from '@/api';
 import { homeStore } from '@/store';
 import {SvgIcon} from '@/components/common'
+import { t } from '@/locales';
 
+const ms= useMessage();
 const mapRef = ref(new Map<string, number>());
 
 const st= ref({pIndex:-1});
@@ -31,6 +33,11 @@ const RunwayTaskDown=(item:RunwayTask)=>{
     document.body.removeChild(link);
 }
 
+const extend=  (item:RunwayTask )=>{
+    mlog("extend ", item ) 
+    homeStore.setMyData({act:"runway.extend", actData: item  })
+}
+
 watch(()=>homeStore.myData.act, (n)=>{
      if(n=='RunwayFeed')  initLoad() 
 });
@@ -47,13 +54,24 @@ const reRunwayFeed= async(id:string)=>{
     mapRef.value.delete( id)
 }
 
+const deleteGo=(item:RunwayTask)=>{
+    mlog('deleteGo',item )
+    if( csuno.delete( item)){ 
+        ms.success( t('common.deleteSuccess'))
+        initLoad()
+    }
+}
+
 initLoad();
+
+
 </script>
 <template>
 <div v-if="list.length>0" class="p-4">
     <div  class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         <div v-for="(item, index) in list" :key="index" class="relative" @mousemove="st.pIndex=index" @mouseout="st.pIndex=-1">
             <div class="relative flex items-center justify-center bg-white bg-opacity-10 rounded-[16px] overflow-hidden aspect-[16/8.85] ">
+                
                 <template  v-if="item.artifacts && item.artifacts.length>0  && item.artifacts[0].url">
                     <div v-if="mapRef.has(item.id)   ">
                         <NButton  size="small" type="primary" @click="reRunwayFeed( item.id )"   >{{$t('video.repeat2')}}</NButton>
@@ -96,6 +114,7 @@ initLoad();
                     </template>
                     <div v-if="item.id" >ID: {{ item.id }}</div>
                     <div v-if="item.taskType=='gen3a'" >Version: Gen-3</div>
+                    <div v-if="item.taskType=='gen3a_turbo'" >Version: Gen-3-turbo</div>
                     <div v-if="item.taskType=='gen2'" >Version: Gen-2</div>
                     <div v-if="item.createdAt" >createdAt: {{ new Date( item.createdAt).toLocaleString() }}</div>
                     <div class=" max-w-[300px]" v-if="item.options.text_prompt">{{ item.options.text_prompt }}</div>
@@ -109,6 +128,14 @@ initLoad();
                     
                       <n-button-group size="tiny">
                         <n-button  size="tiny" round ghost   @click="RunwayTaskDown( item )"  ><SvgIcon icon="mdi:download" /> {{ $t('video.download') }}</n-button>
+                        <n-button   size="tiny"  round ghost    > 
+                            <n-popconfirm @positive-click="()=>deleteGo(item)" placement="bottom">
+                                <template #trigger> <SvgIcon icon="mdi:delete"  /></template>
+                                {{ $t('mj.confirmDelete') }}
+                            </n-popconfirm> 
+                        </n-button>
+                        <n-button   size="tiny"  round ghost  @click="extend( item )"  ><SvgIcon icon="ri:video-add-line" /> {{ $t('video.extend') }}</n-button>
+                        <!-- <n-button  size="tiny" round ghost   @click="RunwayTaskDown( item )"  ><SvgIcon icon="mdi:download" /> {{ $t('video.download') }}</n-button> -->
                         
                       </n-button-group>
                      <!-- <a :href="item.video?.download_url? item.video?.download_url:item.video?.url" download  target="_blank" v-if="item.video?.url|| item.video?.download_url"  ><SvgIcon icon="mdi:download" class="cursor-pointer"/></a> -->

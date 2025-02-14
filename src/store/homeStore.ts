@@ -108,12 +108,28 @@ export interface gptServerType{
     VIGGLE_KEY:string
     RUNWAY_SERVER:string
     RUNWAY_KEY:string
+    IDEO_SERVER:string
+    IDEO_KEY:string
+    KLING_SERVER:string
+    KLING_KEY:string
+    PIKA_SERVER:string
+    PIKA_KEY:string
+    UDIO_SERVER:string
+    UDIO_KEY:string
+    PIXVERSE_SERVER:string
+    PIXVERSE_KEY:string
     IS_SET_SYNC?:boolean
     GPTS_GX?:boolean
     IS_LUMA_PRO?:boolean
     RRUNWAY_VERSION?:string
+    DRAW_TYPE?:string
     IS_VIGGLE_PRO?:boolean
     TAB_VIDEO?:string
+    TTS_VOICE?:string
+    REALTIME_SYSMSG?:string
+    REALTIME_MODEL?:string
+    REALTIME_IS_WHISPER?:boolean 
+    TAB_MUSIC?:string
 
 }
 
@@ -134,7 +150,18 @@ let v:gptServerType={
         VIGGLE_KEY:'',
         TAB_VIDEO:'luma',
         RUNWAY_SERVER:'',
-        RUNWAY_KEY:''
+        RUNWAY_KEY:'',
+        IDEO_SERVER:'',
+        IDEO_KEY:'',
+        KLING_SERVER:'',
+        KLING_KEY:'',
+        PIKA_SERVER:'',
+        PIKA_KEY:'',
+        TTS_VOICE:'alloy',
+        UDIO_SERVER:'',
+        UDIO_KEY:'',
+        PIXVERSE_SERVER:'',
+        PIXVERSE_KEY:''
     }
     return v ;
 }

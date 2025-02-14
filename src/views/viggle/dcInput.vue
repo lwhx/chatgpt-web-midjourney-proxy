@@ -11,7 +11,7 @@ import { t } from '@/locales';
 import { lumaHkStore } from '@/api/lumaStore';
 import { sleep } from '@/api/suno';
 
-const f= ref({ "imageID": "", "bgMode": 2, "modelInfoID": 3,"templateID": "","videoID":'' })
+const f= ref({ "imageID": "", "bgMode": 2, "modelInfoID": 4,"templateID": "","videoID":'','watermark':1 })
 const st= ref({isDo:false,showImg:false,q:'',imgSrc:'',vgSrc:'',vgCoverURL:'',version:'relax'})
 const useTem= ref<ViggleTemplate>()
 const fsRef= ref() ;
@@ -22,8 +22,10 @@ const { isMobile } = useBasicLayout()
 
 
 const modelOption= [
+{label: t('dance.model')+': V3-Beta',value: 4},
+{label:t('dance.model')+': V2-Turbo',value:3},
 {label: t('dance.model')+': V2',value: 2}
-,{label:t('dance.model')+': V2-Turbo',value:3}
+
  ]
  const bgOption= [
      {label:t('dance.bgw') ,value: 0}
@@ -222,7 +224,7 @@ onMounted(() => {
     <div  class="pt-2" v-if="isHK">
         <n-select v-model:value="st.version" :options="mvOption" size="small" />
     </div>
-    
+
     <div class="pt-2 flex justify-center items-center w-full">
          <NButton block :loading="st.isDo" type="primary" :disabled="!canPost" @click="generate()"><SvgIcon icon="ri:video-add-line"  /> {{$t('video.generate')}}</NButton> 
     </div>
